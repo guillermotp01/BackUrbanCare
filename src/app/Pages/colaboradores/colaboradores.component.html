@@ -35,16 +35,85 @@
 
 <div class="relative bg-clip-border rounded-xl overflow-hidden bg-transparent text-gray-700 shadow-none m-0 flex items-center justify-between p-6">
     <div>
-        <!-- Cambié el tamaño de la fuente de text-base a text-xl -->
-        <h6 class="block antialiased tracking-normal font-sans text-3xl font-semibold leading-relaxed text-blue-gray-900 mb-1">Colaboradores</h6>
+      <h6 class="block antialiased tracking-normal font-sans text-3xl font-semibold leading-relaxed text-blue-gray-900 mb-1">Colaboradores</h6>
     </div>
-    <button aria-expanded="false" aria-haspopup="menu" id=":r5:" class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-32 h-8 rounded-lg text-xs text-white bg-[#171e2c] hover:bg-[#35383e] active:bg-[#2A2C30]" type="button">
-        <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-            AGREGAR
-        </span>
-    </button>                      
+    <button (click)="AgregarColab()" aria-expanded="false" aria-haspopup="menu" id=":r5:" class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-32 h-8 rounded-lg text-xs text-white bg-[#171e2c] hover:bg-[#35383e] active:bg-[#2A2C30]" type="button">
+      <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">AGREGAR</span>
+    </button>
+  </div>
+  
+<!-- Modal -->
+<div *ngIf="showModal" class="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="relative flex flex-col bg-white rounded shadow-md text-black w-[600px] p-6"> <!-- Ancho de la modal -->
+        
+        <span class="absolute top-4 right-4 cursor-pointer text-2xl text-black font-bold" (click)="CerrarColab()">&times;</span> 
+        <h1 class="mb-8 text-3xl text-center">Agregar Colaborador</h1>
+        <hr class="mb-4"> 
+        <form>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+
+                <input 
+                    type="text"
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="nombre"
+                    placeholder="Nombre" />
+
+                <input 
+                    type="text"
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="apellido"
+                    placeholder="Apellido" />
+
+                <select 
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="tipo_documento">
+                    <option value="">Tipo de documento</option>
+                    <option value="dni">DNI</option>
+                    <option value="pasaporte">Pasaporte</option>
+                    <option value="cedula">Cédula</option>
+                </select>
+
+                <input 
+                    type="number"
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="nro_documento"
+                    placeholder="Nro de Documento" />
+
+                <input 
+                    type="text"
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="celular"
+                    placeholder="Celular" />
+
+                <input 
+                    type="email"
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="correo"
+                    placeholder="Correo" />
+
+                <select 
+                    class="block border border-grey-light w-full p-3 rounded"
+                    name="tipo_colaborador">
+                    <option value="">Tipo de colaborador</option>
+                    <option value="administrativo">Administrativo</option>
+                    <option value="añañin">Añañin</option>
+                </select>
+            </div>
+
+            <div class="flex justify-center mt-6">
+                <button
+                    type="submit"
+                    class="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 focus:outline-none">
+                    Agregar
+                </button>
+            </div>
+        </form>
+    </div>
 </div>
 
+
+
+  <!--COLABORADORES-->
 
 <div class="mb-10 flex gap-x-6">
     
