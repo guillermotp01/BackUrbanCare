@@ -11,15 +11,29 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./colaboradores.component.css'] 
 })
 export default class ColaboradoresComponent {
-  showModal: boolean = false;
+  showModalAgregar = false;
+  showModalEliminar = false;
 
-  AgregarColab() {
-    this.showModal = true;
+  abrirModalAgregar() {
+    this.showModalAgregar = true;
   }
 
-  CerrarColab() {
-    this.showModal = false;
+  cerrarModalAgregar() {
+    this.showModalAgregar = false;
   }
 
+  abrirModalEliminar() {
+    this.showModalEliminar = true;
+  }
 
+  cerrarModalEliminar() {
+    this.showModalEliminar = false;
+  }
+
+  eliminarColaborador() {
+    // Lógica para eliminar colaborador ekide
+    console.log('Colaborador eliminado');
+    this.cerrarModalEliminar();
+  }
 }
+
