@@ -20,6 +20,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./Pages/eventos/eventos.component')
             },
             {
+                path: 'detalleEvento',
+                loadComponent: () => import('./Pages/detalle-evento/detalle-evento.component')
+            },
+            {
                 path: '',
                 redirectTo: 'dashboard',
                 pathMatch: 'full'
